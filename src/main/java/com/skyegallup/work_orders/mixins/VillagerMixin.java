@@ -1,8 +1,8 @@
 package com.skyegallup.work_orders.mixins;
 
 import com.skyegallup.work_orders.core.IMerchantOffer;
+import com.skyegallup.work_orders.particles.AllParticleTypes;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.*;
@@ -76,7 +76,7 @@ public abstract class VillagerMixin extends AbstractVillager {
 
             ServerLevel level = (ServerLevel)this.level();
             level.sendParticles(
-                ParticleTypes.HAPPY_VILLAGER,  // TODO: use a new particle type/color
+                AllParticleTypes.VILLAGER_WORK_ORDER.get(),
                 this.getRandomX(1.0), this.getY(1.0) + 0.125, this.getRandomZ(1.0),
                 1,  // count
                 dx, dy, dz,
