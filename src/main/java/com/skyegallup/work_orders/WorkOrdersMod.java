@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.mojang.logging.LogUtils;
 import com.skyegallup.work_orders.commands.AllCommands;
+import com.skyegallup.work_orders.core.WorkOrderItemListing;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -92,7 +93,7 @@ public class WorkOrdersMod
             event.getTrades().put(6, new ArrayList<>());
         }
         List<VillagerTrades.ItemListing> lvl6Listings = event.getTrades().get(6);
-        lvl6Listings.add(new BasicItemListing(new ItemStack(Items.SPIDER_EYE, 20), new ItemStack(Items.BREWING_STAND), 1, 50, 1));
+        lvl6Listings.add(new WorkOrderItemListing(new ItemStack(Items.SPIDER_EYE, 20), new ItemStack(Items.BREWING_STAND), 50, 1));
     }
 
     @SubscribeEvent

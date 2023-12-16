@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimpleJsonResourceReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 
 import java.util.Map;
@@ -19,11 +20,18 @@ public class WorkOrderResourceReloadListener extends SimpleJsonResourceReloadLis
     }
 
     @Override
-    protected void apply(Map<ResourceLocation, JsonElement> objects, ResourceManager resourceManager, ProfilerFiller profiler) {
+    protected void apply(
+        Map<ResourceLocation, JsonElement> objects,
+        @NotNull ResourceManager resourceManager,
+        @NotNull ProfilerFiller profiler
+    ) {
         LOGGER.warn("Loading work order data...");
 
         objects.forEach((resourceLocation, jsonElement) -> {
-            LOGGER.warn("Found work order " + jsonElement.getAsString() + " at " + resourceLocation.toString());
+            LOGGER.warn("Found work order at " + resourceLocation.toString());
+            // TODO: do something here :)
         });
+
+        LOGGER.info(String.format("Loaded %s work orders", objects.size()));
     }
 }
