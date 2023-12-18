@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "work_orders.refmap.json",
   "mixins": [
+    "MerchantMenuMixin",
     "MerchantOfferMixin",
     "MerchantScreenMixin",
     "VillagerMixin"
