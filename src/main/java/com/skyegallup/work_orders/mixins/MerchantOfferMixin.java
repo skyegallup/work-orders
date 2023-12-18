@@ -16,13 +16,18 @@ public class MerchantOfferMixin implements IMerchantOffer {
     protected boolean work_orders$isWorkOrder;
 
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/nbt/CompoundTag;)V", remap = false)
-    private void init(CompoundTag compoundTag, CallbackInfo callback) {
+    private void onInitWithCompoundTag(CompoundTag compoundTag, CallbackInfo callback) {
         if (compoundTag.contains("isWorkOrder", 1)) {  // 1 -> boolean
             this.work_orders$isWorkOrder = compoundTag.getBoolean("isWorkOrder");
         } else {
             // default to false to avoid crashing on vanilla save data
             this.work_orders$isWorkOrder = false;
         }
+    }
+
+    @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/world/item/trading/MerchantOffer;)V", remap = false)
+    private void onInitCopy(MerchantOffer offer, CallbackInfo callback) {
+        this.work_orders$isWorkOrder = ((IMerchantOffer)offer).work_orders$getIsWorkOrder();
     }
 
     @ModifyVariable(method = "createTag", at = @At("RETURN"), remap = false)

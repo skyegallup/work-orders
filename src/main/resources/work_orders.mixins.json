@@ -5,6 +5,7 @@
   "refmap": "work_orders.refmap.json",
   "mixins": [
     "MerchantOfferMixin",
+    "MerchantScreenMixin",
     "VillagerMixin"
   ],
   "client": [
