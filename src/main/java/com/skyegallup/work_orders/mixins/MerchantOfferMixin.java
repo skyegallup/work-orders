@@ -2,18 +2,28 @@ package com.skyegallup.work_orders.mixins;
 
 import com.skyegallup.work_orders.core.IMerchantOffer;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(MerchantOffer.class)
-public class MerchantOfferMixin implements IMerchantOffer {
+public abstract class MerchantOfferMixin implements IMerchantOffer {
     @Unique
     protected boolean work_orders$isWorkOrder;
+
+    @Final
+    @Shadow
+    private ItemStack baseCostA;
+
+    @Shadow public abstract ItemStack getBaseCostA();
 
     @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/nbt/CompoundTag;)V", remap = false)
     private void onInitWithCompoundTag(CompoundTag compoundTag, CallbackInfo callback) {
@@ -30,10 +40,18 @@ public class MerchantOfferMixin implements IMerchantOffer {
         this.work_orders$isWorkOrder = ((IMerchantOffer)offer).work_orders$getIsWorkOrder();
     }
 
-    @ModifyVariable(method = "createTag", at = @At("RETURN"), remap = false)
+    @ModifyVariable(at = @At("RETURN"), method = "createTag",  remap = false)
     public CompoundTag modifyCompoundTag(CompoundTag compoundtag) {
         compoundtag.putBoolean("isWorkOrder", this.work_orders$getIsWorkOrder());
         return compoundtag;
+    }
+
+    @Inject(at = @At("HEAD"), method = "getCostA", remap = false, cancellable = true)
+    public void onGetCostA(CallbackInfoReturnable<ItemStack> callback) {
+        // work orders should always use their base cost
+        if (!this.baseCostA.isEmpty() && this.work_orders$getIsWorkOrder()) {
+            callback.setReturnValue(this.getBaseCostA());
+        }
     }
 
     @Override
