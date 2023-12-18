@@ -1,3 +1,9 @@
 {
-  "message.work_orders.restock_success": "Successfully forced restock for %s villagers"
+  "message.work_orders.restock_success": "Successfully forced restock for %s villagers",
+  "work_orders.midnightconfig.durationInGameDays": "Work order duration (in in-game days)",
+  "work_orders.midnightconfig.minVillagerLevel": "Minimum villager level for work orders",
+  "work_orders.midnightconfig.minVillagerLevelExplanation": "(Setting this to 0 allows work orders at all levels)",
+  "work_orders.midnightconfig.rewardExp": "Work order reward experience",
+  "work_orders.midnightconfig.startChance": "Chance to start a new work order after a restock",
+  "work_orders.midnightconfig.title": "Work Orders Config"
 }

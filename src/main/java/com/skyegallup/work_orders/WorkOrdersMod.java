@@ -5,14 +5,13 @@ import com.skyegallup.work_orders.commands.AllCommands;
 import com.skyegallup.work_orders.core.WorkOrderItemListing;
 import com.skyegallup.work_orders.particles.AllParticleProviders;
 import com.skyegallup.work_orders.particles.AllParticleTypes;
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.*;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
@@ -46,8 +45,8 @@ public class WorkOrdersMod
         // Register our DeferredRegisters to the mod bus
         AllParticleTypes.PARTICLE_TYPES.register(modEventBus);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        // Register our mod config using MidnightLib
+        MidnightConfig.init(ID, Config.class);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -73,7 +72,12 @@ public class WorkOrdersMod
             event.getTrades().put(6, new ArrayList<>());
         }
         List<VillagerTrades.ItemListing> lvl6Listings = event.getTrades().get(6);
-        lvl6Listings.add(new WorkOrderItemListing(new ItemStack(Items.SPIDER_EYE, 20), new ItemStack(Items.BREWING_STAND), 50, 1));
+        lvl6Listings.add(new WorkOrderItemListing(
+            new ItemStack(Items.SPIDER_EYE, 20),
+            new ItemStack(Items.BREWING_STAND),
+            Config.rewardExp,
+            1
+        ));
     }
 
     @SubscribeEvent

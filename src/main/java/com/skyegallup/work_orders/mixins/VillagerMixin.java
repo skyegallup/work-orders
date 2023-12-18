@@ -1,5 +1,6 @@
 package com.skyegallup.work_orders.mixins;
 
+import com.skyegallup.work_orders.Config;
 import com.skyegallup.work_orders.core.IMerchantOffer;
 import com.skyegallup.work_orders.particles.AllParticleTypes;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -22,7 +23,6 @@ import java.util.Optional;
 @Mixin(Villager.class)
 public abstract class VillagerMixin extends AbstractVillager {
     @Unique protected long work_orders$lastWorkOrderStartGameTime;
-    @Unique protected long work_orders$workOrderDuration = 2 * (24000);  // 2 in-game days' worth of ticks
     @Unique protected long work_orders$workOrderParticlePeriod = 20;  // show particles every 1 second
     @Unique protected long work_orders$lastWorkOrderParticleGameTime;
 
@@ -32,16 +32,18 @@ public abstract class VillagerMixin extends AbstractVillager {
 
     @Inject(at = @At("TAIL"), method = "restock", remap = false)
     public void onRestock(CallbackInfo callback) {
+        VillagerData villagerData = this.getVillagerData();
+
         // check if we currently have a work order
         if (this.work_orders$getCurrentWorkOrder() != null) {
             // if so, check if it's expired and remove it if necessary
-            if (this.level().getGameTime() >= this.work_orders$lastWorkOrderStartGameTime + this.work_orders$workOrderDuration) {
+            long workOrderDuration = (long)Config.durationInGameDays * 24000;  // 24k ticks -> 1 in-game day
+            if (this.level().getGameTime() >= this.work_orders$lastWorkOrderStartGameTime + workOrderDuration) {
                 this.work_orders$clearCurrentWorkOrder();
             }
         }
         // if we don't have an active work order, see if we should activate one now
-        else if (this.random.nextDouble() < 0.25) {
-            VillagerData villagerData = this.getVillagerData();
+        else if (this.random.nextDouble() < Config.startChance && villagerData.getLevel() >= Config.minVillagerLevel) {
             VillagerProfession profession = villagerData.getProfession();
 
             Int2ObjectMap<VillagerTrades.ItemListing[]> trades = VillagerTrades.TRADES.get(profession);
