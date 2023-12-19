@@ -1,8 +1,11 @@
 package com.skyegallup.work_orders;
 
 import com.mojang.logging.LogUtils;
+import com.mojang.serialization.Codec;
 import com.skyegallup.work_orders.commands.AllCommands;
 import com.skyegallup.work_orders.core.WorkOrderItemListings;
+import com.skyegallup.work_orders.modifiers.AllTradeModifiers;
+import com.skyegallup.work_orders.modifiers.TradeModifier;
 import com.skyegallup.work_orders.particles.AllParticleProviders;
 import com.skyegallup.work_orders.particles.AllParticleTypes;
 import eu.midnightdust.lib.config.MidnightConfig;
@@ -17,7 +20,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
@@ -32,6 +34,12 @@ public class WorkOrdersMod
 
     public static final ResourceKey<Registry<WorkOrderItemListings>> WORK_ORDER = ResourceKey.createRegistryKey(
         new ResourceLocation(ID, "work_order")
+    );
+    public static final ResourceKey<Registry<TradeModifier>> TRADE_MODIFIER = ResourceKey.createRegistryKey(
+        new ResourceLocation(ID, "trade_modifier")
+    );
+    public static final ResourceKey<Registry<Codec<? extends TradeModifier>>> TRADE_MODIFIER_CODEC = ResourceKey.createRegistryKey(
+        new ResourceLocation(ID, "trade_modifier_codec")
     );
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
@@ -49,6 +57,7 @@ public class WorkOrdersMod
 
         // Register our DeferredRegisters to the mod bus
         AllParticleTypes.PARTICLE_TYPES.register(modEventBus);
+        AllTradeModifiers.CODECS.register(modEventBus);
 
         // Register our mod config using MidnightLib
         MidnightConfig.init(ID, Config.class);
