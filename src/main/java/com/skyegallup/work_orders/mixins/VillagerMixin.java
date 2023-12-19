@@ -2,8 +2,9 @@ package com.skyegallup.work_orders.mixins;
 
 import com.skyegallup.work_orders.Config;
 import com.skyegallup.work_orders.core.IMerchantOffer;
+import com.skyegallup.work_orders.core.WorkOrderItemListing;
+import com.skyegallup.work_orders.core.WorkOrderItemListings;
 import com.skyegallup.work_orders.particles.AllParticleTypes;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.*;
@@ -18,7 +19,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.List;
 import java.util.Optional;
+
+import static com.skyegallup.work_orders.WorkOrdersMod.WORK_ORDER;
 
 @Mixin(Villager.class)
 public abstract class VillagerMixin extends AbstractVillager {
@@ -46,12 +50,13 @@ public abstract class VillagerMixin extends AbstractVillager {
         else if (this.random.nextDouble() < Config.startChance && villagerData.getLevel() >= Config.minVillagerLevel) {
             VillagerProfession profession = villagerData.getProfession();
 
-            Int2ObjectMap<VillagerTrades.ItemListing[]> trades = VillagerTrades.TRADES.get(profession);
-            if (trades != null && !trades.isEmpty()) {
-                VillagerTrades.ItemListing[] workOrderItemListings = trades.get(6);
-                if (workOrderItemListings != null) {
-                    this.work_orders$pickAndAddWorkOrder(workOrderItemListings);
-                }
+            List<WorkOrderItemListing> workOrders = this.level().registryAccess().registryOrThrow(WORK_ORDER).stream()
+                .filter(wo -> wo.getProfession().equals(profession))
+                .map(WorkOrderItemListings::getItemListings)
+                .flatMap(List::stream)
+                .toList();
+            if (!workOrders.isEmpty()) {
+                this.work_orders$pickAndAddWorkOrder(workOrders);
             }
         }
     }
@@ -111,8 +116,8 @@ public abstract class VillagerMixin extends AbstractVillager {
     }
 
     @Unique
-    protected void work_orders$pickAndAddWorkOrder(VillagerTrades.ItemListing[] listings) {
-        MerchantOffer offer = listings[this.random.nextInt(listings.length)].getOffer(this, this.random);
+    protected void work_orders$pickAndAddWorkOrder(List<WorkOrderItemListing> listings) {
+        MerchantOffer offer = listings.get(this.random.nextInt(listings.size())).getOffer(this, this.random);
         if (offer != null) {
             ((IMerchantOffer)offer).work_orders$setIsWorkOrder(true);
             this.getOffers().add(offer);

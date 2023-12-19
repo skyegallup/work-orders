@@ -1,0 +1,14 @@
+{
+  "profession": "minecraft:toolsmith",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:diamond",
+        "count": 10
+      },
+      "forSale": {
+        "item": "minecraft:diamond_pickaxe"
+      }
+    }
+  ]
+}

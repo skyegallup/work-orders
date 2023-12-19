@@ -2,12 +2,13 @@ package com.skyegallup.work_orders;
 
 import com.mojang.logging.LogUtils;
 import com.skyegallup.work_orders.commands.AllCommands;
-import com.skyegallup.work_orders.core.WorkOrderItemListing;
+import com.skyegallup.work_orders.core.WorkOrderItemListings;
 import com.skyegallup.work_orders.particles.AllParticleProviders;
 import com.skyegallup.work_orders.particles.AllParticleTypes;
 import eu.midnightdust.lib.config.MidnightConfig;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.item.*;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -19,11 +20,8 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.event.village.VillagerTradesEvent;
+import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.slf4j.Logger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(WorkOrdersMod.ID)
@@ -32,12 +30,19 @@ public class WorkOrdersMod
     public static final String ID = "work_orders";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static final ResourceKey<Registry<WorkOrderItemListings>> WORK_ORDER = ResourceKey.createRegistryKey(
+        new ResourceLocation(ID, "work_order")
+    );
+
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public WorkOrdersMod(IEventBus modEventBus)
     {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+
+        // Set up for loading our datapack registries
+        modEventBus.addListener(this::onDataPackRegistry);
 
         // Register ourselves for server and other game events we are interested in
         NeoForge.EVENT_BUS.register(this);
@@ -61,23 +66,8 @@ public class WorkOrdersMod
 
     }
 
-    @SubscribeEvent
-    public void onAddReloadListener(AddReloadListenerEvent event) {
-        event.addListener(new WorkOrderResourceReloadListener());
-    }
-
-    @SubscribeEvent
-    public void onVillagerTrades(VillagerTradesEvent event) {
-        if (!event.getTrades().containsKey(6)) {
-            event.getTrades().put(6, new ArrayList<>());
-        }
-        List<VillagerTrades.ItemListing> lvl6Listings = event.getTrades().get(6);
-        lvl6Listings.add(new WorkOrderItemListing(
-            new ItemStack(Items.SPIDER_EYE, 20),
-            new ItemStack(Items.BREWING_STAND),
-            Config.rewardExp,
-            1
-        ));
+    public void onDataPackRegistry(DataPackRegistryEvent.NewRegistry event) {
+        event.dataPackRegistry(WORK_ORDER, WorkOrderItemListings.CODEC);
     }
 
     @SubscribeEvent
