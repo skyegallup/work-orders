@@ -1,0 +1,36 @@
+{
+  "profession": "minecraft:farmer",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:cocoa_beans",
+        "count": 36
+      },
+      "forSale": {
+        "item": "minecraft:golden_apple"
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:cocoa_beans",
+        "count": 36
+      },
+      "forSale": {
+        "item": "minecraft:golden_apple",
+        "count": 2
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:iron_hoe"
+      },
+      "price2": {
+        "item": "minecraft:iron_hoe"
+      },
+      "forSale": {
+        "item": "minecraft:hay_block",
+        "count": 4
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "profession": "minecraft:librarian",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:candle",
+        "count": 4
+      },
+      "forSale": {
+        "item": "minecraft:book",
+        "count": 10
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:emerald",
+        "count": 40
+      },
+      "forSale": {
+        "item": "minecraft:enchanted_book"
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 30,
+          "maxLevel": 70,
+          "includeTreasureEnchants": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "profession": "minecraft:fisherman",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:bucket",
+        "count": 6
+      },
+      "forSale": {
+        "item": "minecraft:cooked_salmon",
+        "count": 25
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:nautilus_shell"
+      },
+      "forSale": {
+        "item": "minecraft:fishing_rod"
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 18,
+          "maxLevel": 28
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:pufferfish",
+        "count": 20
+      },
+      "forSale": {
+        "item": "minecraft:scute",
+        "count": 3
+      }
+    }
+  ]
+}

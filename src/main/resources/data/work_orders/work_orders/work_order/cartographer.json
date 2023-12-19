@@ -1,0 +1,35 @@
+{
+  "profession": "minecraft:cartographer",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:leather",
+        "count": 20
+      },
+      "forSale": {
+        "item": "minecraft:emerald",
+        "count": 6
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:ink_sac",
+        "count": 16
+      },
+      "forSale": {
+        "item": "minecraft:emerald",
+        "count": 8
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:echo_shard",
+        "count": 3
+      },
+      "forSale": {
+        "item": "minecraft:recovery_compass",
+        "count": 1
+      }
+    }
+  ]
+}

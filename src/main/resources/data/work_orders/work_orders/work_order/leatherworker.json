@@ -1,0 +1,25 @@
+{
+  "profession": "minecraft:leatherworker",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:rabbit_hide",
+        "count": 16
+      },
+      "forSale": {
+        "item": "minecraft:leather",
+        "count": 24
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:phantom_membrane",
+        "count": 4
+      },
+      "forSale": {
+        "item": "minecraft:emerald",
+        "count": 4
+      }
+    }
+  ]
+}

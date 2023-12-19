@@ -16,6 +16,32 @@
           "id": "minecraft:healing"
         }
       ]
+    },
+    {
+      "price": {
+        "item": "minecraft:golden_carrot",
+        "count": 12
+      },
+      "forSale": {
+        "item": "minecraft:splash_potion",
+        "count": 2
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:set_potion",
+          "id": "minecraft:long_weakness"
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:gunpowder",
+        "count": 20
+      },
+      "forSale": {
+        "item": "minecraft:blaze_powder",
+        "count": 5
+      }
     }
   ]
 }

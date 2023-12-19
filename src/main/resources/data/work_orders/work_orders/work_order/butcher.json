@@ -1,0 +1,35 @@
+{
+  "profession": "minecraft:butcher",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:coal",
+        "count": 50
+      },
+      "forSale": {
+        "item": "minecraft:cooked_beef",
+        "count": 30
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:coal",
+        "count": 40
+      },
+      "forSale": {
+        "item": "minecraft:cooked_porkchop",
+        "count": 30
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:raw_cod",
+        "count": 30
+      },
+      "forSale": {
+        "item": "minecraft:emerald",
+        "count": 6
+      }
+    }
+  ]
+}

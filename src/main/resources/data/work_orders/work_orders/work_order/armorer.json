@@ -1,0 +1,73 @@
+{
+  "profession": "minecraft:armorer",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:gold_ingot",
+        "count": 24
+      },
+      "forSale": {
+        "item": "minecraft:diamond_helmet",
+        "count": 1
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 15,
+          "maxLevel": 25
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:iron_ingot",
+        "count": 50
+      },
+      "forSale": {
+        "item": "minecraft:diamond_chestplate",
+        "count": 1
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 15,
+          "maxLevel": 25
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:lapis_lazuli",
+        "count": 48
+      },
+      "forSale": {
+        "item": "minecraft:diamond_leggings",
+        "count": 1
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 15,
+          "maxLevel": 25
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:coal_block",
+        "count": 6
+      },
+      "forSale": {
+        "item": "minecraft:diamond_boots",
+        "count": 1
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 15,
+          "maxLevel": 25
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "profession": "minecraft:shephard",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:shears"
+      },
+      "price2": {
+        "item": "minecraft:shears"
+      },
+      "forSale": {
+        "item": "minecraft:emerald",
+        "count": 6
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:wheat",
+        "count": 14
+      },
+      "forSale": {
+        "item": "minecraft:white_wool",
+        "count": 36
+      }
+    },
+    {
+      "price": {
+        "item": "minecraft:cyan_dye",
+        "count": 16
+      },
+      "forSale": {
+        "item": "minecraft:lead",
+        "count": 3
+      }
+    }
+  ]
+}

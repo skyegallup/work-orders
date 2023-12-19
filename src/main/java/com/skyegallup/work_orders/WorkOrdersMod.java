@@ -1,7 +1,12 @@
 package com.skyegallup.work_orders;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
+import com.mojang.serialization.JsonOps;
 import com.skyegallup.work_orders.commands.AllCommands;
 import com.skyegallup.work_orders.core.WorkOrderItemListings;
 import com.skyegallup.work_orders.modifiers.AllTradeModifiers;
@@ -69,7 +74,49 @@ public class WorkOrdersMod
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-
+        String json = """
+                        {
+                          "profession": "minecraft:mason",
+                          "listings": [
+                            {
+                              "price": {
+                                "item": "minecraft:iron_pickaxe"
+                              },
+                              "price2": {
+                                "item": "minecraft:iron_pickaxe"
+                              },
+                              "forSale": {
+                                "item": "minecraft:nether_quartz",
+                                "count": 16
+                              }
+                            },
+                            {
+                              "price": {
+                                "item": "minecraft:deepslate",
+                                "count": 20
+                              },
+                              "forSale": {
+                                "item": "minecraft:emerald",
+                                "count": 4
+                              }
+                            },
+                            {
+                              "price": {
+                                "item": "minecraft:clay_ball",
+                                "count": 48
+                              },
+                              "forSale": {
+                                "item": "minecraft:tnt",
+                                "count": 6
+                              }
+                            }
+                          ]
+                        }        
+                """;
+        Gson gson = new GsonBuilder().create();
+        JsonElement elem = gson.fromJson(json, JsonElement.class);
+        DataResult<WorkOrderItemListings> res = WorkOrderItemListings.CODEC.parse(JsonOps.INSTANCE, elem);
+        System.out.println("aaa?");
     }
 
     public void onDataPackRegistry(DataPackRegistryEvent.NewRegistry event) {

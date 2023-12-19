@@ -1,0 +1,53 @@
+{
+  "profession": "minecraft:fletcher",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:iron_ingot",
+        "count": 24
+      },
+      "forSale": {
+        "item": "minecraft:tipped_arrow",
+        "count": 12
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:set_potion",
+          "id": "minecraft:strong_poison"
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:leather",
+        "count": 20
+      },
+      "forSale": {
+        "item": "minecraft:tipped_arrow",
+        "count": 12
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:set_potion",
+          "id": "minecraft:strong_slowness"
+        }
+      ]
+    },
+    {
+      "price": {
+        "item": "minecraft:spectral_arrow",
+        "count": 12
+      },
+      "forSale": {
+        "item": "minecraft:bow"
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 15,
+          "maxLevel": 25
+        }
+      ]
+    }
+  ]
+}

@@ -70,7 +70,7 @@ public class WorkOrderItemListing implements ItemListing {
     public static final Codec<WorkOrderItemListing> CODEC = RecordCodecBuilder.create(instance ->
         instance.group(
             ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("price").forGetter(WorkOrderItemListing::getPrice),
-            ItemStack.ITEM_WITH_COUNT_CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),
+            ItemStack.ITEM_WITH_COUNT_CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),  // TODO: fix this
             ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("forSale").forGetter(WorkOrderItemListing::getForSale),
             ExtraCodecs.strictOptionalField(TradeModifier.CODEC.listOf(), "forSaleModifiers", List.of()).forGetter(WorkOrderItemListing::getForSaleModifiers),
             Codec.INT.optionalFieldOf("xp", 50).forGetter(WorkOrderItemListing::getXp),
