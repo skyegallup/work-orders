@@ -9,7 +9,14 @@
       "forSale": {
         "item": "minecraft:diamond_pickaxe"
       },
-      "forSaleModifiers": {}
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:enchantment",
+          "minLevel": 10,
+          "maxLevel": 20,
+          "includeTreasureEnchants": true
+        }
+      ]
     }
   ]
 }

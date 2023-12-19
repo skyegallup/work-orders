@@ -5,21 +5,20 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import static net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 
 import com.skyegallup.work_orders.modifiers.TradeModifier;
+import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WorkOrderItemListing implements ItemListing {
     protected final ItemStack price;
     protected final ItemStack price2;
     protected final ItemStack forSale;
-    //protected final List<TradeModifier> forSaleModifiers;
-    protected final TradeModifier forSaleModifiers;
+    protected final List<TradeModifier> forSaleModifiers;
     protected final int xp;
     protected final float priceMult;
 
@@ -27,8 +26,7 @@ public class WorkOrderItemListing implements ItemListing {
         ItemStack price,
         ItemStack price2,
         ItemStack forSale,
-        //List<TradeModifier> forSaleModifiers,
-        TradeModifier forSaleModifiers,
+        List<TradeModifier> forSaleModifiers,
         int xp,
         float priceMult
     ) {
@@ -43,10 +41,9 @@ public class WorkOrderItemListing implements ItemListing {
     @Override
     public MerchantOffer getOffer(@NotNull Entity entity, @NotNull RandomSource random) {
         ItemStack copy = forSale.copy();
-//        for (TradeModifier modifier : forSaleModifiers) {
-//            copy = modifier.apply(copy, random);
-//        }
-        copy = forSaleModifiers.apply(copy, random);
+        for (TradeModifier modifier : forSaleModifiers) {
+            copy = modifier.apply(copy, random);
+        }
 
         return new MerchantOffer(price, price2, copy, 1, xp, priceMult);
     }
@@ -60,8 +57,7 @@ public class WorkOrderItemListing implements ItemListing {
     public ItemStack getForSale() {
         return this.forSale;
     }
-    //public List<TradeModifier> getForSaleModifiers() {
-    public TradeModifier getForSaleModifiers() {
+    public List<TradeModifier> getForSaleModifiers() {
         return this.forSaleModifiers;
     }
     public int getXp() {
@@ -76,7 +72,7 @@ public class WorkOrderItemListing implements ItemListing {
             ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("price").forGetter(WorkOrderItemListing::getPrice),
             ItemStack.ITEM_WITH_COUNT_CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),
             ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("forSale").forGetter(WorkOrderItemListing::getForSale),
-            TradeModifier.CODEC.fieldOf("forSaleModifiers").forGetter(WorkOrderItemListing::getForSaleModifiers),
+            ExtraCodecs.strictOptionalField(TradeModifier.CODEC.listOf(), "forSaleModifiers", List.of()).forGetter(WorkOrderItemListing::getForSaleModifiers),
             Codec.INT.optionalFieldOf("xp", 50).forGetter(WorkOrderItemListing::getXp),
             Codec.FLOAT.optionalFieldOf("priceMult", 1f).forGetter(WorkOrderItemListing::getPriceMult)
         ).apply(instance, WorkOrderItemListing::new)

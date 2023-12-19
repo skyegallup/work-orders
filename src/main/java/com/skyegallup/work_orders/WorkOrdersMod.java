@@ -35,9 +35,6 @@ public class WorkOrdersMod
     public static final ResourceKey<Registry<WorkOrderItemListings>> WORK_ORDER = ResourceKey.createRegistryKey(
         new ResourceLocation(ID, "work_order")
     );
-    public static final ResourceKey<Registry<TradeModifier>> TRADE_MODIFIER = ResourceKey.createRegistryKey(
-        new ResourceLocation(ID, "trade_modifier")
-    );
     public static final ResourceKey<Registry<Codec<? extends TradeModifier>>> TRADE_MODIFIER_CODEC = ResourceKey.createRegistryKey(
         new ResourceLocation(ID, "trade_modifier_codec")
     );

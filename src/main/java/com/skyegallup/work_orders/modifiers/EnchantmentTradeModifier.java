@@ -6,7 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 
-public class EnchantmentTradeModifier implements TradeModifier {
+public class EnchantmentTradeModifier extends TradeModifier {
     protected int minEnchantLevel;
     protected int maxEnchantLevel;
     protected boolean includeTreasureEnchants;

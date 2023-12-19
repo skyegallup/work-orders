@@ -9,7 +9,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class AllTradeModifiers {
     public static final DeferredRegister<Codec<? extends TradeModifier>> CODECS = DeferredRegister.create(
         WorkOrdersMod.TRADE_MODIFIER_CODEC,
-        "trade_modifier_codecs"
+        WorkOrdersMod.ID
     );
     public static final Registry<Codec<? extends TradeModifier>> DISPATCH = CODECS.makeRegistry(builder -> { });
 
