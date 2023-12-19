@@ -1,0 +1,21 @@
+{
+  "profession": "minecraft:cleric",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:fermented_spider_eye",
+        "count": 10
+      },
+      "forSale": {
+        "item": "minecraft:potion",
+        "count": 3
+      },
+      "forSaleModifiers": [
+        {
+          "type": "work_orders:set_potion",
+          "id": "minecraft:healing"
+        }
+      ]
+    }
+  ]
+}
