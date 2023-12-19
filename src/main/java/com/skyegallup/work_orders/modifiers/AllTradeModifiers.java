@@ -16,4 +16,7 @@ public class AllTradeModifiers {
     public static final DeferredHolder<Codec<? extends TradeModifier>, Codec<EnchantmentTradeModifier>> ENCHANTMENT_CODEC = CODECS.register(
         "enchantment", () -> EnchantmentTradeModifier.CODEC
     );
+    public static final DeferredHolder<Codec<? extends TradeModifier>, Codec<SetNbtTradeModifier>> SET_NBT_CODEC = CODECS.register(
+        "set_nbt", () -> SetNbtTradeModifier.CODEC
+    );
 }
