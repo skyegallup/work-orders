@@ -74,49 +74,7 @@ public class WorkOrdersMod
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        String json = """
-                        {
-                          "profession": "minecraft:mason",
-                          "listings": [
-                            {
-                              "price": {
-                                "item": "minecraft:iron_pickaxe"
-                              },
-                              "price2": {
-                                "item": "minecraft:iron_pickaxe"
-                              },
-                              "forSale": {
-                                "item": "minecraft:nether_quartz",
-                                "count": 16
-                              }
-                            },
-                            {
-                              "price": {
-                                "item": "minecraft:deepslate",
-                                "count": 20
-                              },
-                              "forSale": {
-                                "item": "minecraft:emerald",
-                                "count": 4
-                              }
-                            },
-                            {
-                              "price": {
-                                "item": "minecraft:clay_ball",
-                                "count": 48
-                              },
-                              "forSale": {
-                                "item": "minecraft:tnt",
-                                "count": 6
-                              }
-                            }
-                          ]
-                        }        
-                """;
-        Gson gson = new GsonBuilder().create();
-        JsonElement elem = gson.fromJson(json, JsonElement.class);
-        DataResult<WorkOrderItemListings> res = WorkOrderItemListings.CODEC.parse(JsonOps.INSTANCE, elem);
-        System.out.println("aaa?");
+
     }
 
     public void onDataPackRegistry(DataPackRegistryEvent.NewRegistry event) {

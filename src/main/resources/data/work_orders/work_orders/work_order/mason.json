@@ -9,7 +9,7 @@
         "item": "minecraft:iron_pickaxe"
       },
       "forSale": {
-        "item": "minecraft:nether_quartz",
+        "item": "minecraft:quartz",
         "count": 16
       }
     },
