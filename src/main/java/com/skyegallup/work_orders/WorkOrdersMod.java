@@ -1,12 +1,7 @@
 package com.skyegallup.work_orders;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
-import com.mojang.serialization.JsonOps;
 import com.skyegallup.work_orders.commands.AllCommands;
 import com.skyegallup.work_orders.core.WorkOrderItemListings;
 import com.skyegallup.work_orders.modifiers.AllTradeModifiers;
@@ -21,12 +16,9 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 import org.slf4j.Logger;
 
@@ -48,9 +40,6 @@ public class WorkOrdersMod
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public WorkOrdersMod(IEventBus modEventBus)
     {
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
         // Set up for loading our datapack registries
         modEventBus.addListener(this::onDataPackRegistry);
 
@@ -63,18 +52,6 @@ public class WorkOrdersMod
 
         // Register our mod config using MidnightLib
         MidnightConfig.init(ID, Config.class);
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
-
-    }
-
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
-
     }
 
     public void onDataPackRegistry(DataPackRegistryEvent.NewRegistry event) {
@@ -90,12 +67,6 @@ public class WorkOrdersMod
     @Mod.EventBusSubscriber(modid = ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
-        @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
-
-        }
-
         @SubscribeEvent
         public static void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {
             AllParticleProviders.register(event);
