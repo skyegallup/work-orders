@@ -27,6 +27,7 @@ public class VillagerWorkOrderParticleProvider implements ParticleProvider<Simpl
         SuspendedTownParticle suspendedTownParticle = new SuspendedTownParticle(level, x, y, z, dx, dy, dz);
         suspendedTownParticle.pickSprite(this.sprite);
         suspendedTownParticle.setColor(0.76F, 0.70F, 0.23F);
+        suspendedTownParticle.setLifetime(suspendedTownParticle.getLifetime() * 3 / 4);
         return suspendedTownParticle;
     }
 }

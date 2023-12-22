@@ -80,11 +80,12 @@ public abstract class VillagerMixin extends AbstractVillager {
             double dx = this.random.nextGaussian() * 0.02;
             double dy = this.random.nextGaussian() * 0.02;
             double dz = this.random.nextGaussian() * 0.02;
+            double randomY = this.getY(1.0) + 0.1 + (this.random.nextDouble() * 0.15);
 
             ServerLevel level = (ServerLevel)this.level();
             level.sendParticles(
                 AllParticleTypes.VILLAGER_WORK_ORDER.get(),
-                this.getRandomX(1.0), this.getY(1.0) + 0.125, this.getRandomZ(1.0),
+                this.getRandomX(1.0), randomY, this.getRandomZ(1.0),
                 1,  // count
                 dx, dy, dz,
                 0.1f  // max speed
