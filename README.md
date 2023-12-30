@@ -16,6 +16,8 @@ Work Orders requires [NeoForge](https://neoforged.net) to use. The latest versio
 
 Work Orders can be downloaded from [Modrinth](https://modrinth.com/mod/work-orders).
 
+This mod also requires [MidnightLib](https://modrinth.com/mod/midnightlib) version 1.5.2 or newer for its config page.
+
 # Contributing
 
 Any contributions are appreciated! We are especially looking for help with localization and adjusting the balance of
