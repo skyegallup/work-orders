@@ -14,6 +14,8 @@ For more information, check out the [Work Orders wiki](https://github.com/skyega
 
 Work Orders requires [NeoForge](https://neoforged.net) to use. The latest version of the mod supports Minecraft 1.20.4.
 
+Work Orders can be downloaded from [Modrinth](https://modrinth.com/mod/work-orders).
+
 # Contributing
 
 Any contributions are appreciated! We are especially looking for help with localization and adjusting the balance of
