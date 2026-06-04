@@ -28,5 +28,5 @@ To report issues or suggest changes, check out our
 
 ---
 
-Work Orders is created by Skylar Gallup. Sources are licensed under the
+Work Orders is created by Skylar G. ("skyebound"). Sources are licensed under the
 [MIT License](https://github.com/skyegallup/work-orders/blob/main/LICENSE.txt).
