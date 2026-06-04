@@ -1,10 +1,10 @@
-package com.skyegallup.work_orders.core;
+package gay.skyebound.work_orders.core;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import static net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 
-import com.skyegallup.work_orders.modifiers.TradeModifier;
+import gay.skyebound.work_orders.modifiers.TradeModifier;
 import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;

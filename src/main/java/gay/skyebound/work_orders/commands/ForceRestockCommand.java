@@ -1,4 +1,4 @@
-package com.skyegallup.work_orders.commands;
+package gay.skyebound.work_orders.commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;

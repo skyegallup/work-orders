@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "work_orders",
+  "version": "${mod_version}",
+  "name": "Work Orders",
+  "description": "A vanilla-style mod that adds limited-time villager trades.",
+  "authors": [
+    "Skylar G."
+  ],
+  "contact": {
+    "homepage": "https://github.com/skyegallup/work-orders",
+    "sources": "https://github.com/skyegallup/work-orders"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gay.skyebound.WorkOrdersMod"
+    ]
+  },
+  "mixins": [
+    "work_orders.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

@@ -1,4 +1,4 @@
-package com.skyegallup.work_orders.particles;
+package gay.skyebound.work_orders.particles;
 
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 

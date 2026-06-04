@@ -1,6 +1,6 @@
-package com.skyegallup.work_orders.particles;
+package gay.skyebound.work_orders.particles;
 
-import com.skyegallup.work_orders.WorkOrdersMod;
+import gay.skyebound.work_orders.WorkOrdersMod;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;

@@ -1,6 +1,6 @@
-package com.skyegallup.work_orders.mixins;
+package gay.skyebound.work_orders.mixins;
 
-import com.skyegallup.work_orders.core.IMerchantOffer;
+import gay.skyebound.work_orders.core.IMerchantOffer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.trading.MerchantOffer;

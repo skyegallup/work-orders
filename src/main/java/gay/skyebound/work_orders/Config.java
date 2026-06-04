@@ -1,4 +1,4 @@
-package com.skyegallup.work_orders;
+package gay.skyebound.work_orders;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 

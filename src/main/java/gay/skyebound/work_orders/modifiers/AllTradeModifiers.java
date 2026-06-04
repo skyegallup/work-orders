@@ -1,7 +1,7 @@
-package com.skyegallup.work_orders.modifiers;
+package gay.skyebound.work_orders.modifiers;
 
 import com.mojang.serialization.Codec;
-import com.skyegallup.work_orders.WorkOrdersMod;
+import gay.skyebound.work_orders.WorkOrdersMod;
 import net.minecraft.core.Registry;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;

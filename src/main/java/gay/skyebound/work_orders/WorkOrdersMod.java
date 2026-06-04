@@ -1,13 +1,13 @@
-package com.skyegallup.work_orders;
+package gay.skyebound.work_orders;
 
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
-import com.skyegallup.work_orders.commands.AllCommands;
-import com.skyegallup.work_orders.core.WorkOrderItemListings;
-import com.skyegallup.work_orders.modifiers.AllTradeModifiers;
-import com.skyegallup.work_orders.modifiers.TradeModifier;
-import com.skyegallup.work_orders.particles.AllParticleProviders;
-import com.skyegallup.work_orders.particles.AllParticleTypes;
+import gay.skyebound.work_orders.commands.AllCommands;
+import gay.skyebound.work_orders.core.WorkOrderItemListings;
+import gay.skyebound.work_orders.modifiers.AllTradeModifiers;
+import gay.skyebound.work_orders.modifiers.TradeModifier;
+import gay.skyebound.work_orders.particles.AllParticleProviders;
+import gay.skyebound.work_orders.particles.AllParticleTypes;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;

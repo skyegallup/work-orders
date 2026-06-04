@@ -1,4 +1,4 @@
-package com.skyegallup.work_orders.core;
+package gay.skyebound.work_orders.core;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -1,8 +1,8 @@
-package com.skyegallup.work_orders.mixins;
+package gay.skyebound.work_orders.mixins;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import com.skyegallup.work_orders.WorkOrdersMod;
-import com.skyegallup.work_orders.core.IMerchantOffer;
+import gay.skyebound.work_orders.WorkOrdersMod;
+import gay.skyebound.work_orders.core.IMerchantOffer;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.MerchantScreen;
 import net.minecraft.resources.ResourceLocation;

@@ -1,10 +1,10 @@
-package com.skyegallup.work_orders.mixins;
+package gay.skyebound.work_orders.mixins;
 
-import com.skyegallup.work_orders.Config;
-import com.skyegallup.work_orders.core.IMerchantOffer;
-import com.skyegallup.work_orders.core.WorkOrderItemListing;
-import com.skyegallup.work_orders.core.WorkOrderItemListings;
-import com.skyegallup.work_orders.particles.AllParticleTypes;
+import gay.skyebound.work_orders.Config;
+import gay.skyebound.work_orders.core.IMerchantOffer;
+import gay.skyebound.work_orders.core.WorkOrderItemListing;
+import gay.skyebound.work_orders.core.WorkOrderItemListings;
+import gay.skyebound.work_orders.particles.AllParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.npc.*;
@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.List;
 import java.util.Optional;
 
-import static com.skyegallup.work_orders.WorkOrdersMod.WORK_ORDER;
+import static gay.skyebound.work_orders.WorkOrdersMod.WORK_ORDER;
 
 @Mixin(Villager.class)
 public abstract class VillagerMixin extends AbstractVillager {

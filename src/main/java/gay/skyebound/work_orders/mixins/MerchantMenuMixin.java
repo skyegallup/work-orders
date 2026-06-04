@@ -1,7 +1,7 @@
-package com.skyegallup.work_orders.mixins;
+package gay.skyebound.work_orders.mixins;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import com.skyegallup.work_orders.core.IMerchantOffer;
+import gay.skyebound.work_orders.core.IMerchantOffer;
 import net.minecraft.world.inventory.MerchantMenu;
 import net.minecraft.world.item.trading.MerchantOffers;
 import org.spongepowered.asm.mixin.Mixin;
