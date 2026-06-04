@@ -1,4 +1,4 @@
-package gay.skyebound.work_orders.mixins;
+package gay.skyebound.work_orders.client.mixins;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import gay.skyebound.work_orders.WorkOrdersMod;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MerchantScreenMixin {
     @Unique
     private static final ResourceLocation WORK_ORDER_INDICATOR_SPRITE = new ResourceLocation(
-        WorkOrdersMod.ID,
+        WorkOrdersMod.MOD_ID,
         "container/villager/work_order_indicator"
     );
 

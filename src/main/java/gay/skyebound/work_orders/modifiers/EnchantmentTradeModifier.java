@@ -25,7 +25,7 @@ public class EnchantmentTradeModifier extends TradeModifier {
 
     @Override
     public Codec<? extends TradeModifier> type() {
-        return AllTradeModifiers.ENCHANTMENT_CODEC.get();
+        return AllTradeModifiers.ENCHANTMENT_CODEC;
     }
 
     public int getMinEnchantLevel() {

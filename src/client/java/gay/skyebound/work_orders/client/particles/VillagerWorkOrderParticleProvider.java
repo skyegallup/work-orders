@@ -1,4 +1,4 @@
-package gay.skyebound.work_orders.particles;
+package gay.skyebound.work_orders.client.particles;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;

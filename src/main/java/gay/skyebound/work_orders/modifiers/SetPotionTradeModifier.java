@@ -23,7 +23,7 @@ public class SetPotionTradeModifier extends TradeModifier {
 
     @Override
     public Codec<? extends TradeModifier> type() {
-        return AllTradeModifiers.SET_POTION_CODEC.get();
+        return AllTradeModifiers.SET_POTION_CODEC;
     }
 
     public Holder<Potion> getPotion() {

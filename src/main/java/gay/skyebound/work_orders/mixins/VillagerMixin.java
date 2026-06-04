@@ -84,7 +84,7 @@ public abstract class VillagerMixin extends AbstractVillager {
 
             ServerLevel level = (ServerLevel)this.level();
             level.sendParticles(
-                AllParticleTypes.VILLAGER_WORK_ORDER.get(),
+                AllParticleTypes.VILLAGER_WORK_ORDER,
                 this.getRandomX(1.0), randomY, this.getRandomZ(1.0),
                 1,  // count
                 dx, dy, dz,

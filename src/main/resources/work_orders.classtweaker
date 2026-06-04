@@ -1,0 +1,4 @@
+classTweaker v1 named
+
+transitive-accessible class net/minecraft/client/particle/SuspendedTownParticle
+transitive-accessible method net/minecraft/client/particle/SuspendedTownParticle <init> (Lnet/minecraft/client/multiplayer/ClientLevel;DDDDDD)V

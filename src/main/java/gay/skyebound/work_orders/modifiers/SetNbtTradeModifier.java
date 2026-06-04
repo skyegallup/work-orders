@@ -22,7 +22,7 @@ public class SetNbtTradeModifier extends TradeModifier {
 
     @Override
     public Codec<? extends TradeModifier> type() {
-        return AllTradeModifiers.SET_NBT_CODEC.get();
+        return AllTradeModifiers.SET_NBT_CODEC;
     }
 
     public CompoundTag getTag() {

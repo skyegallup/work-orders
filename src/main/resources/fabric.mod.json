@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "work_orders",
-  "version": "${mod_version}",
+  "version": "${version}",
   "name": "Work Orders",
   "description": "A vanilla-style mod that adds limited-time villager trades.",
   "authors": [
@@ -16,12 +16,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "gay.skyebound.WorkOrdersMod"
+      "gay.skyebound.work_orders.WorkOrdersMod"
+    ],
+    "client": [
+      "gay.skyebound.work_orders.client.WorkOrdersModClient"
     ]
   },
   "mixins": [
-    "work_orders.mixins.json"
+    "work_orders.mixins.json",
+    {
+      "config": "work_orders.client.mixins.json",
+      "environment": "client"
+    }
   ],
+  "accessWidener": "work_orders.classtweaker",
   "depends": {
     "fabricloader": ">=0.19.3",
     "minecraft": "~1.20.4",

@@ -22,6 +22,8 @@ loom {
             sourceSet sourceSets.client
         }
     }
+
+    accessWidenerPath = file("src/main/resources/work_orders.classtweaker")
 }
 
 base {

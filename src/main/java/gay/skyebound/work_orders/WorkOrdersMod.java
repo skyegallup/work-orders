@@ -1,75 +1,41 @@
 package gay.skyebound.work_orders;
 
-import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import gay.skyebound.work_orders.commands.AllCommands;
 import gay.skyebound.work_orders.core.WorkOrderItemListings;
 import gay.skyebound.work_orders.modifiers.AllTradeModifiers;
 import gay.skyebound.work_orders.modifiers.TradeModifier;
-import gay.skyebound.work_orders.particles.AllParticleProviders;
 import gay.skyebound.work_orders.particles.AllParticleTypes;
 import eu.midnightdust.lib.config.MidnightConfig;
+import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
-import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.registries.DataPackRegistryEvent;
-import org.slf4j.Logger;
 
-// The value here should match an entry in the META-INF/mods.toml file
-@Mod(WorkOrdersMod.ID)
-public class WorkOrdersMod
+public class WorkOrdersMod implements ModInitializer
 {
-    public static final String ID = "work_orders";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final String MOD_ID = "work_orders";
+    // private static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final ResourceKey<Registry<WorkOrderItemListings>> WORK_ORDER = ResourceKey.createRegistryKey(
-        new ResourceLocation(ID, "work_order")
+        new ResourceLocation(MOD_ID, "work_order")
     );
     public static final ResourceKey<Registry<Codec<? extends TradeModifier>>> TRADE_MODIFIER_CODEC = ResourceKey.createRegistryKey(
-        new ResourceLocation(ID, "trade_modifier_codec")
+        new ResourceLocation(MOD_ID, "trade_modifier_codec")
     );
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
-    // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
-    public WorkOrdersMod(IEventBus modEventBus)
+    @Override
+    public void onInitialize()
     {
-        // Set up for loading our datapack registries
-        modEventBus.addListener(this::onDataPackRegistry);
+        AllParticleTypes.initialize();
+        AllTradeModifiers.initialize();
+        DynamicRegistries.register(WORK_ORDER, WorkOrderItemListings.CODEC);
 
-        // Register ourselves for server and other game events we are interested in
-        NeoForge.EVENT_BUS.register(this);
-
-        // Register our DeferredRegisters to the mod bus
-        AllParticleTypes.PARTICLE_TYPES.register(modEventBus);
-        AllTradeModifiers.CODECS.register(modEventBus);
+        CommandRegistrationCallback.EVENT.register(((dispatcher, registryAccess, environment) -> AllCommands.register(dispatcher)));
 
         // Register our mod config using MidnightLib
-        MidnightConfig.init(ID, Config.class);
-    }
-
-    public void onDataPackRegistry(DataPackRegistryEvent.NewRegistry event) {
-        event.dataPackRegistry(WORK_ORDER, WorkOrderItemListings.CODEC);
-    }
-
-    @SubscribeEvent
-    public void onRegisterCommands(RegisterCommandsEvent event) {
-        AllCommands.register(event.getDispatcher());
-    }
-
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @Mod.EventBusSubscriber(modid = ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
-        @SubscribeEvent
-        public static void onRegisterParticleProviders(RegisterParticleProvidersEvent event) {
-            AllParticleProviders.register(event);
-        }
+        MidnightConfig.init(MOD_ID, Config.class);
     }
 }
