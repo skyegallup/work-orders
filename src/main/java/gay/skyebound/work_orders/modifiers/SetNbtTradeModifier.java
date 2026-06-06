@@ -3,7 +3,6 @@ package gay.skyebound.work_orders.modifiers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.TagParser;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 
@@ -30,6 +29,6 @@ public class SetNbtTradeModifier extends TradeModifier {
     }
 
     public static Codec<SetNbtTradeModifier> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-        TagParser.AS_CODEC.fieldOf("tag").forGetter(SetNbtTradeModifier::getTag)
+        CompoundTag.CODEC.fieldOf("tag").forGetter(SetNbtTradeModifier::getTag)
     ).apply(instance, SetNbtTradeModifier::new));
 }

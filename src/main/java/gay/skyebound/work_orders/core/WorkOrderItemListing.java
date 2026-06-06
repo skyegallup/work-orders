@@ -4,8 +4,8 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import static net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 
+import gay.skyebound.work_orders.compat.ItemStackCompatCodec;
 import gay.skyebound.work_orders.modifiers.TradeModifier;
-import net.minecraft.util.ExtraCodecs;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
@@ -69,12 +69,12 @@ public class WorkOrderItemListing implements ItemListing {
 
     public static final Codec<WorkOrderItemListing> CODEC = RecordCodecBuilder.create(instance ->
         instance.group(
-            ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("price").forGetter(WorkOrderItemListing::getPrice),
-            ItemStack.ITEM_WITH_COUNT_CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),
-            ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("forSale").forGetter(WorkOrderItemListing::getForSale),
-            ExtraCodecs.strictOptionalField(TradeModifier.CODEC.listOf(), "forSaleModifiers", List.of()).forGetter(WorkOrderItemListing::getForSaleModifiers),
-            Codec.INT.optionalFieldOf("xp", 50).forGetter(WorkOrderItemListing::getXp),
-            Codec.FLOAT.optionalFieldOf("priceMult", 1f).forGetter(WorkOrderItemListing::getPriceMult)
+                ItemStackCompatCodec.CODEC.fieldOf("price").forGetter(WorkOrderItemListing::getPrice),
+                ItemStackCompatCodec.CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),
+                ItemStackCompatCodec.CODEC.fieldOf("forSale").forGetter(WorkOrderItemListing::getForSale),
+                TradeModifier.CODEC.listOf().optionalFieldOf("forSaleModifiers", List.of()).forGetter(WorkOrderItemListing::getForSaleModifiers),
+                Codec.INT.optionalFieldOf("xp", 50).forGetter(WorkOrderItemListing::getXp),
+                Codec.FLOAT.optionalFieldOf("priceMult", 1f).forGetter(WorkOrderItemListing::getPriceMult)
         ).apply(instance, WorkOrderItemListing::new)
     );
 }
