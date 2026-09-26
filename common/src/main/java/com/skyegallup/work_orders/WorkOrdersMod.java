@@ -1,9 +1,9 @@
 package com.skyegallup.work_orders;
 
 import com.mojang.logging.LogUtils;
-import com.mojang.serialization.Codec;
 import com.skyegallup.work_orders.core.WorkOrderItemListings;
-import com.skyegallup.work_orders.modifiers.TradeModifier;
+import com.skyegallup.work_orders.modifiers.AllTradeModifiers;
+import com.skyegallup.work_orders.particles.AllParticleTypes;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -18,13 +18,13 @@ public class WorkOrdersMod
     public static final ResourceKey<Registry<WorkOrderItemListings>> WORK_ORDER = ResourceKey.createRegistryKey(
         new ResourceLocation(ID, "work_order")
     );
-    public static final ResourceKey<Registry<Codec<? extends TradeModifier>>> TRADE_MODIFIER_CODEC = ResourceKey.createRegistryKey(
-        new ResourceLocation(ID, "trade_modifier_codec")
-    );
 
     public static void init()
     {
         // Do common setup:
+        AllParticleTypes.PARTICLE_TYPES.register();
+        AllTradeModifiers.registerAll();
+
         // Register our mod config using MidnightLib
         MidnightConfig.init(ID, Config.class);
     }

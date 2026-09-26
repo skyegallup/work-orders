@@ -45,7 +45,13 @@ processResources {
     inputs.property 'version', project.version
 
     filesMatching('META-INF/mods.toml') {
-        expand version: inputs.properties.version
+        expand (
+            version: inputs.properties.version,
+            mod_version: rootProject.properties.mod_version,
+            mod_name: rootProject.properties.mod_name,
+            mod_authors: rootProject.properties.mod_authors,
+            mod_description: rootProject.properties.mod_description,
+        )
     }
 }
 

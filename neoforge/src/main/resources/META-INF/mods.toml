@@ -37,4 +37,4 @@ side = "BOTH"
 config = "work_orders.mixins.json"
 
 [[accessTransformers]]
-file="work_orders_base.cfg"
+file="META-INF/accesstransformer.cfg"
