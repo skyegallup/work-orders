@@ -30,9 +30,9 @@ public class WorkOrdersMod
         AllParticleProviders.register();
 
         // Register commands
-        CommandRegistrationEvent.EVENT.register(((dispatcher, registry, selection) -> {
-            AllCommands.register(dispatcher);
-        }));
+        CommandRegistrationEvent.EVENT.register(
+            (dispatcher, registry, selection) -> AllCommands.register(dispatcher)
+        );
 
         // Register our mod config using MidnightLib
         MidnightConfig.init(WorkOrdersMod.ID, Config.class);
