@@ -1,0 +1,15 @@
+{
+  "profession": "minecraft:librarian",
+  "listings": [
+    {
+      "price": {
+        "item": "minecraft:candle",
+        "count": 4
+      },
+      "forSale": {
+        "item": "minecraft:book",
+        "count": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "work_orders",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [
+    "${mod_authors}"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/work-orders",
+    "sources": "https://github.com/skyegallup/work-orders"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "gay.skyebound.work_orders.fabric.WorkOrdersModFabric"
+    ],
+    "client": [
+      "gay.skyebound.work_orders.fabric.client.WorkOrdersModFabricClient"
+    ]
+  },
+  "mixins": [
+    "work_orders.mixins.json"
+  ],
+  "accessWidener": "work_orders.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "~1.20.4",
+    "java": ">=17",
+    "architectury": ">=11.1.17",
+    "fabric-api": "*",
+    "midnightlib": ">=1.5.3"
+  }
+}

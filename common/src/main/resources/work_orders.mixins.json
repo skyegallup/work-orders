@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "gay.skyebound.work_orders.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "work_orders.refmap.json",
+  "mixins": [
+    "MerchantMenuMixin",
+    "MerchantOfferMixin",
+    "MerchantScreenMixin",
+    "VillagerMixin"
+  ],
+  "client": [
+  ],
+  "minVersion": "0.8"
+}
