@@ -12,7 +12,7 @@
     "sources": "https://github.com/skyegallup/work-orders"
   },
   "license": "MIT",
-  "icon": "icon.png",
+  "icon": "logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [
