@@ -1,3 +1,6 @@
 accessWidener v2 named
 accessible method net/minecraft/core/particles/SimpleParticleType <init> (Z)V
 accessible method net/minecraft/client/particle/SuspendedTownParticle <init> (Lnet/minecraft/client/multiplayer/ClientLevel;DDDDDD)V
+accessible method net/minecraft/world/item/trading/MerchantOffer <init> (Lnet/minecraft/world/item/trading/ItemCost;Ljava/util/Optional;Lnet/minecraft/world/item/ItemStack;IIZIIFI)V
+accessible method net/minecraft/world/item/trading/MerchantOffer writeToStream (Lnet/minecraft/network/RegistryFriendlyByteBuf;Lnet/minecraft/world/item/trading/MerchantOffer;)V
+accessible method net/minecraft/world/item/trading/MerchantOffers <init> (Ljava/util/Collection;)V

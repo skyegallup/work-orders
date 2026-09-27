@@ -16,7 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(MerchantScreen.class)
 public class MerchantScreenMixin {
     @Unique
-    private static final ResourceLocation WORK_ORDER_INDICATOR_SPRITE = new ResourceLocation(
+    private static final ResourceLocation WORK_ORDER_INDICATOR_SPRITE = ResourceLocation.fromNamespaceAndPath(
         WorkOrdersMod.ID,
         "container/villager/work_order_indicator"
     );

@@ -3,20 +3,20 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:bucket",
+        "id": "minecraft:bucket",
         "count": 6
       },
       "forSale": {
-        "item": "minecraft:cooked_salmon",
+        "id": "minecraft:cooked_salmon",
         "count": 25
       }
     },
     {
       "price": {
-        "item": "minecraft:nautilus_shell"
+        "id": "minecraft:nautilus_shell"
       },
       "forSale": {
-        "item": "minecraft:fishing_rod"
+        "id": "minecraft:fishing_rod"
       },
       "forSaleModifiers": [
         {
@@ -28,11 +28,11 @@
     },
     {
       "price": {
-        "item": "minecraft:pufferfish",
+        "id": "minecraft:pufferfish",
         "count": 20
       },
       "forSale": {
-        "item": "minecraft:scute",
+        "id": "minecraft:turtle_scute",
         "count": 3
       }
     }

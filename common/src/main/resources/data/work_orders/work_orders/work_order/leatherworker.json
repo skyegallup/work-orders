@@ -3,21 +3,21 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:rabbit_hide",
+        "id": "minecraft:rabbit_hide",
         "count": 16
       },
       "forSale": {
-        "item": "minecraft:leather",
+        "id": "minecraft:leather",
         "count": 24
       }
     },
     {
       "price": {
-        "item": "minecraft:phantom_membrane",
+        "id": "minecraft:phantom_membrane",
         "count": 4
       },
       "forSale": {
-        "item": "minecraft:emerald",
+        "id": "minecraft:emerald",
         "count": 4
       }
     }

@@ -3,11 +3,11 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:fermented_spider_eye",
+        "id": "minecraft:fermented_spider_eye",
         "count": 10
       },
       "forSale": {
-        "item": "minecraft:potion",
+        "id": "minecraft:potion",
         "count": 3
       },
       "forSaleModifiers": [
@@ -19,11 +19,11 @@
     },
     {
       "price": {
-        "item": "minecraft:golden_carrot",
+        "id": "minecraft:golden_carrot",
         "count": 12
       },
       "forSale": {
-        "item": "minecraft:splash_potion",
+        "id": "minecraft:splash_potion",
         "count": 2
       },
       "forSaleModifiers": [
@@ -35,11 +35,11 @@
     },
     {
       "price": {
-        "item": "minecraft:gunpowder",
+        "id": "minecraft:gunpowder",
         "count": 20
       },
       "forSale": {
-        "item": "minecraft:blaze_powder",
+        "id": "minecraft:blaze_powder",
         "count": 5
       }
     }

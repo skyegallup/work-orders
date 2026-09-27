@@ -3,11 +3,11 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:diamond",
+        "id": "minecraft:diamond",
         "count": 13
       },
       "forSale": {
-        "item": "minecraft:diamond_sword"
+        "id": "minecraft:diamond_sword"
       },
       "forSaleModifiers": [
         {
@@ -19,11 +19,11 @@
     },
     {
       "price": {
-        "item": "minecraft:blast_furnace",
+        "id": "minecraft:blast_furnace",
         "count": 2
       },
       "forSale": {
-        "item": "minecraft:diamond_axe"
+        "id": "minecraft:diamond_axe"
       },
       "forSaleModifiers": [
         {
@@ -35,10 +35,10 @@
     },
     {
       "price": {
-        "item": "minecraft:heart_of_the_sea"
+        "id": "minecraft:heart_of_the_sea"
       },
       "forSale": {
-        "item": "minecraft:trident"
+        "id": "minecraft:trident"
       }
     }
   ]

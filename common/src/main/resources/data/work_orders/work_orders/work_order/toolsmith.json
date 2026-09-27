@@ -3,11 +3,11 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:diamond",
+        "id": "minecraft:diamond",
         "count": 14
       },
       "forSale": {
-        "item": "minecraft:diamond_pickaxe"
+        "id": "minecraft:diamond_pickaxe"
       },
       "forSaleModifiers": [
         {
@@ -19,13 +19,13 @@
     },
     {
       "price": {
-        "item": "minecraft:lava_bucket"
+        "id": "minecraft:lava_bucket"
       },
       "price2": {
-        "item": "minecraft:lava_bucket"
+        "id": "minecraft:lava_bucket"
       },
       "forSale": {
-        "item": "minecraft:diamond_shovel"
+        "id": "minecraft:diamond_shovel"
       },
       "forSaleModifiers": [
         {
@@ -37,11 +37,11 @@
     },
     {
       "price": {
-        "item": "minecraft:blast_furnace",
+        "id": "minecraft:blast_furnace",
         "count": 2
       },
       "forSale": {
-        "item": "minecraft:diamond_axe"
+        "id": "minecraft:diamond_axe"
       },
       "forSaleModifiers": [
         {

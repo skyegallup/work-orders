@@ -2,6 +2,7 @@ package gay.skyebound.work_orders;
 
 import com.mojang.logging.LogUtils;
 import gay.skyebound.work_orders.commands.AllCommands;
+import gay.skyebound.work_orders.components.AllDataComponents;
 import gay.skyebound.work_orders.core.WorkOrderItemListings;
 import gay.skyebound.work_orders.modifiers.AllTradeModifiers;
 import gay.skyebound.work_orders.particles.AllParticleProviders;
@@ -19,12 +20,13 @@ public class WorkOrdersMod
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public static final ResourceKey<Registry<WorkOrderItemListings>> WORK_ORDER = ResourceKey.createRegistryKey(
-        new ResourceLocation(ID, "work_order")
+        ResourceLocation.fromNamespaceAndPath(ID, "work_order")
     );
 
     public static void init()
     {
         // Do common setup:
+        AllDataComponents.DATA_COMPONENTS.register();
         AllParticleTypes.PARTICLE_TYPES.register();
         AllTradeModifiers.registerAll();
         AllParticleProviders.register();

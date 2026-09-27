@@ -5,14 +5,18 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import static net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 
 import gay.skyebound.work_orders.modifiers.TradeModifier;
-import net.minecraft.util.ExtraCodecs;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.trading.ItemCost;
 import net.minecraft.world.item.trading.MerchantOffer;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 public class WorkOrderItemListing implements ItemListing {
     protected final ItemStack price;
@@ -40,12 +44,27 @@ public class WorkOrderItemListing implements ItemListing {
 
     @Override
     public MerchantOffer getOffer(@NotNull Entity entity, @NotNull RandomSource random) {
-        ItemStack copy = forSale.copy();
-        for (TradeModifier modifier : forSaleModifiers) {
-            copy = modifier.apply(copy, random);
+        RegistryAccess registryAccess;
+        try (Level level = entity.level()) {
+            registryAccess = level.registryAccess();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to access level.", e);
         }
 
-        return new MerchantOffer(price, price2, copy, 1, xp, priceMult);
+        ItemStack copy = forSale.copy();
+        for (TradeModifier modifier : forSaleModifiers) {
+            copy = modifier.apply(copy, random, registryAccess);
+        }
+
+        ItemCost cost = new ItemCost(price.getItem());
+        Optional<ItemCost> cost2;
+        if (price2.isEmpty()) {
+            cost2 = Optional.empty();
+        } else {
+            cost2 = Optional.of(new ItemCost(price2.getItem()));
+        }
+
+        return new MerchantOffer(cost, cost2, copy, 1, xp, priceMult);
     }
 
     public ItemStack getPrice() {
@@ -57,8 +76,12 @@ public class WorkOrderItemListing implements ItemListing {
     public ItemStack getForSale() {
         return this.forSale;
     }
-    public List<TradeModifier> getForSaleModifiers() {
-        return this.forSaleModifiers;
+    public Optional<List<TradeModifier>> getForSaleModifiers() {
+        if (this.forSaleModifiers == null || this.forSaleModifiers.isEmpty()) {
+            return Optional.empty();
+        } else {
+            return Optional.of(this.forSaleModifiers);
+        }
     }
     public int getXp() {
         return this.xp;
@@ -69,12 +92,15 @@ public class WorkOrderItemListing implements ItemListing {
 
     public static final Codec<WorkOrderItemListing> CODEC = RecordCodecBuilder.create(instance ->
         instance.group(
-            ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("price").forGetter(WorkOrderItemListing::getPrice),
-            ItemStack.ITEM_WITH_COUNT_CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),
-            ItemStack.ITEM_WITH_COUNT_CODEC.fieldOf("forSale").forGetter(WorkOrderItemListing::getForSale),
-            ExtraCodecs.strictOptionalField(TradeModifier.CODEC.listOf(), "forSaleModifiers", List.of()).forGetter(WorkOrderItemListing::getForSaleModifiers),
+            ItemStack.CODEC.fieldOf("price").forGetter(WorkOrderItemListing::getPrice),
+            ItemStack.CODEC.optionalFieldOf("price2", ItemStack.EMPTY).forGetter(WorkOrderItemListing::getPrice2),
+            ItemStack.CODEC.fieldOf("forSale").forGetter(WorkOrderItemListing::getForSale),
+            Codec.optionalField("forSaleModifiers", TradeModifier.CODEC.listOf(), false).forGetter(WorkOrderItemListing::getForSaleModifiers),
             Codec.INT.optionalFieldOf("xp", 50).forGetter(WorkOrderItemListing::getXp),
             Codec.FLOAT.optionalFieldOf("priceMult", 1f).forGetter(WorkOrderItemListing::getPriceMult)
-        ).apply(instance, WorkOrderItemListing::new)
+        ).apply(instance, (price, price2, forSale, forSaleModifiers, xp, priceMult) -> {
+            List<TradeModifier> forSaleModifiersUnwrapped = forSaleModifiers.orElse(null);
+            return new WorkOrderItemListing(price, price2, forSale, forSaleModifiersUnwrapped, xp, priceMult);
+        })
     );
 }

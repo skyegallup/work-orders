@@ -3,11 +3,11 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:candle",
+        "id": "minecraft:candle",
         "count": 4
       },
       "forSale": {
-        "item": "minecraft:book",
+        "id": "minecraft:book",
         "count": 10
       }
     }

@@ -3,31 +3,31 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:coal",
+        "id": "minecraft:coal",
         "count": 50
       },
       "forSale": {
-        "item": "minecraft:cooked_beef",
+        "id": "minecraft:cooked_beef",
         "count": 30
       }
     },
     {
       "price": {
-        "item": "minecraft:coal",
+        "id": "minecraft:coal",
         "count": 40
       },
       "forSale": {
-        "item": "minecraft:cooked_porkchop",
+        "id": "minecraft:cooked_porkchop",
         "count": 30
       }
     },
     {
       "price": {
-        "item": "minecraft:cod",
+        "id": "minecraft:cod",
         "count": 30
       },
       "forSale": {
-        "item": "minecraft:emerald",
+        "id": "minecraft:emerald",
         "count": 6
       }
     }

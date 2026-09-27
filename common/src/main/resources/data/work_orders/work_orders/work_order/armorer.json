@@ -3,11 +3,11 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:gold_ingot",
+        "id": "minecraft:gold_ingot",
         "count": 24
       },
       "forSale": {
-        "item": "minecraft:diamond_helmet",
+        "id": "minecraft:diamond_helmet",
         "count": 1
       },
       "forSaleModifiers": [
@@ -20,11 +20,11 @@
     },
     {
       "price": {
-        "item": "minecraft:iron_ingot",
+        "id": "minecraft:iron_ingot",
         "count": 50
       },
       "forSale": {
-        "item": "minecraft:diamond_chestplate",
+        "id": "minecraft:diamond_chestplate",
         "count": 1
       },
       "forSaleModifiers": [
@@ -37,11 +37,11 @@
     },
     {
       "price": {
-        "item": "minecraft:lapis_lazuli",
+        "id": "minecraft:lapis_lazuli",
         "count": 48
       },
       "forSale": {
-        "item": "minecraft:diamond_leggings",
+        "id": "minecraft:diamond_leggings",
         "count": 1
       },
       "forSaleModifiers": [
@@ -54,11 +54,11 @@
     },
     {
       "price": {
-        "item": "minecraft:coal_block",
+        "id": "minecraft:coal_block",
         "count": 6
       },
       "forSale": {
-        "item": "minecraft:diamond_boots",
+        "id": "minecraft:diamond_boots",
         "count": 1
       },
       "forSaleModifiers": [

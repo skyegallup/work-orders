@@ -3,6 +3,7 @@ package gay.skyebound.work_orders.utils;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import dev.architectury.registry.registries.Registrar;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 

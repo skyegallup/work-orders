@@ -3,33 +3,33 @@
   "listings": [
     {
       "price": {
-        "item": "minecraft:shears"
+        "id": "minecraft:shears"
       },
       "price2": {
-        "item": "minecraft:shears"
+        "id": "minecraft:shears"
       },
       "forSale": {
-        "item": "minecraft:emerald",
+        "id": "minecraft:emerald",
         "count": 6
       }
     },
     {
       "price": {
-        "item": "minecraft:wheat",
+        "id": "minecraft:wheat",
         "count": 14
       },
       "forSale": {
-        "item": "minecraft:white_wool",
+        "id": "minecraft:white_wool",
         "count": 36
       }
     },
     {
       "price": {
-        "item": "minecraft:cyan_dye",
+        "id": "minecraft:cyan_dye",
         "count": 16
       },
       "forSale": {
-        "item": "minecraft:lead",
+        "id": "minecraft:lead",
         "count": 3
       }
     }
