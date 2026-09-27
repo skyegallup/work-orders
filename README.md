@@ -1,7 +1,7 @@
 # Work Orders
 ![Work Orders logo](common/src/main/resources/logo.png)
 
-![Available for 1.20.4](https://img.shields.io/badge/available_for-1.20.4-red) ![MIT Licensed](https://img.shields.io/badge/license-MIT-blue)
+![Available for 1.20.1, 1.20.4](https://img.shields.io/badge/available_for-1.20.1,_1.20.4-red) ![MIT Licensed](https://img.shields.io/badge/license-MIT-blue)
 
 **Work Orders** is a vanilla-style mod that adds limited-time villager trades. These trades take rare or large
 quantities of items in exchange for better goods.
@@ -12,7 +12,7 @@ For more information, check out the [Work Orders wiki](https://github.com/skyega
 
 # Installation Requirements
 
-Work Orders requires [NeoForge](https://neoforged.net) or [Fabric](https://fabricmc.net/) to use. The latest version of the mod supports Minecraft 1.20.4.
+Work Orders requires [NeoForge](https://neoforged.net) or [Fabric](https://fabricmc.net/) to use. The latest version of the mod supports Minecraft 1.20.1 and 1.20.4.
 
 Work Orders can be downloaded from [Modrinth](https://modrinth.com/mod/work-orders).
 
@@ -28,5 +28,5 @@ To report issues or suggest changes, check out our
 
 ---
 
-Work Orders is created by Skylar ("skyebound") Gallup. Sources are licensed under the
+Work Orders is created by Skylar G. ("skyebound"). Sources are licensed under the
 [MIT License](https://github.com/skyegallup/work-orders/blob/main/LICENSE.txt).
