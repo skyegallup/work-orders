@@ -28,10 +28,10 @@
   "accessWidener": "work_orders.accesswidener",
   "depends": {
     "fabricloader": ">=0.19.5",
-    "minecraft": "~1.20.4",
+    "minecraft": "~1.20.1",
     "java": ">=17",
-    "architectury": ">=11.1.17",
+    "architectury": ">=9.2.14",
     "fabric-api": "*",
-    "midnightlib": ">=1.5.3"
+    "midnightlib": ">=1.4.1"
   }
 }

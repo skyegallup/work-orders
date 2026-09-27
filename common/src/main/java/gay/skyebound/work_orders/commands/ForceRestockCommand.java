@@ -16,6 +16,7 @@ import java.util.List;
 public class ForceRestockCommand implements Command<CommandSourceStack> {
     private static final ForceRestockCommand CMD = new ForceRestockCommand();
 
+    @SuppressWarnings("unused")
     public static ArgumentBuilder<CommandSourceStack, ?> register(CommandDispatcher<CommandSourceStack> dispatcher) {
         return Commands.literal("force_restock")
             .requires(cs -> cs.hasPermission(0))
@@ -27,7 +28,7 @@ public class ForceRestockCommand implements Command<CommandSourceStack> {
         // get all villagers in the world
         ServerLevel level = context.getSource().getLevel();
         List<? extends Villager> villagers = level.getEntities(
-            EntityTypeTest.forExactClass(Villager.class),
+            EntityTypeTest.forClass(Villager.class),
             villager -> true
         );
 

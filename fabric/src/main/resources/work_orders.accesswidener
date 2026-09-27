@@ -1,3 +1,4 @@
 accessWidener v2 named
 accessible method net/minecraft/core/particles/SimpleParticleType <init> (Z)V
 accessible method net/minecraft/client/particle/SuspendedTownParticle <init> (Lnet/minecraft/client/multiplayer/ClientLevel;DDDDDD)V
+transitive-accessible method net/minecraft/world/item/ItemStack <init> (Lnet/minecraft/world/level/ItemLike;ILjava/util/Optional;)V

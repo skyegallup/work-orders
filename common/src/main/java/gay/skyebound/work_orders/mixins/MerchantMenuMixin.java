@@ -20,7 +20,7 @@ public class MerchantMenuMixin {
     )
     public MerchantOffers getSortedOffers(MerchantOffers original) {
         // sort work orders to the front of the list, without mutating the original for safety
-        MerchantOffers sorted = original.copy();
+        MerchantOffers sorted = new MerchantOffers(original.createTag());
         sorted.sort(Comparator.comparing(offer -> ((IMerchantOffer)offer).work_orders$getIsWorkOrder()).reversed());
         return sorted;
     }

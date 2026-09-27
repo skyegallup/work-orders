@@ -35,11 +35,6 @@ public abstract class MerchantOfferMixin implements IMerchantOffer {
         }
     }
 
-    @Inject(at = @At("TAIL"), method = "<init>(Lnet/minecraft/world/item/trading/MerchantOffer;)V", remap = false)
-    private void onInitCopy(MerchantOffer offer, CallbackInfo callback) {
-        this.work_orders$isWorkOrder = ((IMerchantOffer)offer).work_orders$getIsWorkOrder();
-    }
-
     @ModifyVariable(at = @At("RETURN"), method = "createTag",  remap = false)
     public CompoundTag modifyCompoundTag(CompoundTag compoundtag) {
         compoundtag.putBoolean("isWorkOrder", this.work_orders$getIsWorkOrder());

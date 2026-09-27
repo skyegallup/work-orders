@@ -11,4 +11,3 @@ rootProject.name = 'work_orders'
 
 include 'common'
 include 'fabric'
-include 'neoforge'
