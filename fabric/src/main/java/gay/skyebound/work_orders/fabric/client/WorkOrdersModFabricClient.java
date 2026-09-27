@@ -1,0 +1,10 @@
+package gay.skyebound.work_orders.fabric.client;
+
+import net.fabricmc.api.ClientModInitializer;
+
+public final class WorkOrdersModFabricClient implements ClientModInitializer {
+    @Override
+    public void onInitializeClient() {
+        // This entrypoint is suitable for setting up client-specific logic, such as rendering.
+    }
+}

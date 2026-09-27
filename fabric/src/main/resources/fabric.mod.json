@@ -16,10 +16,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.skyegallup.work_orders.fabric.WorkOrdersModFabric"
+      "gay.skyebound.work_orders.fabric.WorkOrdersModFabric"
     ],
     "client": [
-      "com.skyegallup.work_orders.fabric.client.WorkOrdersModFabricClient"
+      "gay.skyebound.work_orders.fabric.client.WorkOrdersModFabricClient"
     ]
   },
   "mixins": [
