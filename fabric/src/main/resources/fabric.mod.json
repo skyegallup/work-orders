@@ -1,38 +1,37 @@
 {
   "schemaVersion": 1,
   "id": "work_orders",
-  "version": "${version}",
-  "name": "Work Orders",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
   "authors": [
-    "Me!"
+    "${mod_authors}"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://modrinth.com/mod/work-orders",
+    "sources": "https://github.com/skyegallup/work-orders"
   },
-  "license": "CC0-1.0",
-  "icon": "assets/work_orders/icon.png",
+  "license": "MIT",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.skyegallup.work_orders.fabric.ExampleModFabric"
+      "com.skyegallup.work_orders.fabric.WorkOrdersModFabric"
     ],
     "client": [
-      "com.skyegallup.work_orders.fabric.client.ExampleModFabricClient"
+      "com.skyegallup.work_orders.fabric.client.WorkOrdersModFabricClient"
     ]
   },
   "mixins": [
     "work_orders.mixins.json"
   ],
+  "accessWidener": "work_orders.accesswidener",
   "depends": {
     "fabricloader": ">=0.19.5",
     "minecraft": "~1.20.4",
     "java": ">=17",
     "architectury": ">=11.1.17",
-    "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
+    "fabric-api": "*",
+    "midnightlib": ">=1.5.3"
   }
 }

@@ -1,10 +1,12 @@
 package com.skyegallup.work_orders;
 
 import com.mojang.logging.LogUtils;
+import com.skyegallup.work_orders.commands.AllCommands;
 import com.skyegallup.work_orders.core.WorkOrderItemListings;
 import com.skyegallup.work_orders.modifiers.AllTradeModifiers;
 import com.skyegallup.work_orders.particles.AllParticleProviders;
 import com.skyegallup.work_orders.particles.AllParticleTypes;
+import dev.architectury.event.events.common.CommandRegistrationEvent;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -27,7 +29,12 @@ public class WorkOrdersMod
         AllTradeModifiers.registerAll();
         AllParticleProviders.register();
 
+        // Register commands
+        CommandRegistrationEvent.EVENT.register(((dispatcher, registry, selection) -> {
+            AllCommands.register(dispatcher);
+        }));
+
         // Register our mod config using MidnightLib
-        MidnightConfig.init(ID, Config.class);
+        MidnightConfig.init(WorkOrdersMod.ID, Config.class);
     }
 }

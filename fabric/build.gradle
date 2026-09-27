@@ -7,6 +7,10 @@ architectury {
     fabric()
 }
 
+loom {
+    accessWidenerPath = file('src/main/resources/work_orders.accesswidener')
+}
+
 configurations {
     common {
         canBeResolved = true
@@ -35,13 +39,22 @@ dependencies {
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')
+
+    // Mod dependencies
+    modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 }
 
 processResources {
     inputs.property 'version', project.version
 
     filesMatching('fabric.mod.json') {
-        expand version: inputs.properties.version
+        expand (
+            version: inputs.properties.version,
+            mod_version: rootProject.properties.mod_version,
+            mod_name: rootProject.properties.mod_name,
+            mod_authors: rootProject.properties.mod_authors,
+            mod_description: rootProject.properties.mod_description,
+        )
     }
 }
 
